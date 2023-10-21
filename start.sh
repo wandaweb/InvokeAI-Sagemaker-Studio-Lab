@@ -14,7 +14,7 @@ fi
 python --version
 
 # Uncomment to install a model before starting the app
-invokeai-model-install --add "stabilityai/stable-diffusion-xl-base-1.0" --root_dir /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai
+#invokeai-model-install --add "stabilityai/stable-diffusion-xl-base-1.0" --root_dir /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai
 
 invokeai-web --root /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai &
 if [ $# -eq 0 ]
