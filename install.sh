@@ -12,7 +12,7 @@ then
 fi
 if ! test -e /home/studio-lab-user/.cache/huggingface/hub
 then
-  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/
+  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/hub
 fi
 python --version
 pip install 'InvokeAI[xformers]' --use-pep517 --extra-index-url https://download.pytorch.org/whl/cu117
