@@ -2,18 +2,18 @@
 eval "$(conda shell.bash hook)"
 conda activate invoke
 mkdir -p /tmp/invoke/models
-mkdir -p /tmp/huggingface/hub
-mkdir -p /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai
-mkdir -p /home/studio-lab-user/.cache/huggingface
-if ! test -e /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/models
+mkdir -p ~/invokeai
+if ! test -e ~/invokeai/models
 then
-  ln -s /tmp/invoke/models /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/
+  ln -s /tmp/invoke/models ~/invokeai/
 fi
-if ! test -e /home/studio-lab-user/.cache/huggingface/hub
-then
-  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/
-fi
-invokeai-configure --root_dir /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai --yes  --default_only --skip-sd-weights --no-full-precision
+#mkdir -p /tmp/huggingface/hub
+#mkdir -p /home/studio-lab-user/.cache/huggingface
+#if ! test -e /home/studio-lab-user/.cache/huggingface/hub
+#then
+#  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/
+#fi
+invokeai-configure --root_dir ~/invokeai --yes  --default_only --skip-sd-weights --no-full-precision
 
 # Uncomment one of the commands below to install a model before starting the app
 
