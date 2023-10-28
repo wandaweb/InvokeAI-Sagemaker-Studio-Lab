@@ -2,18 +2,17 @@
 eval "$(conda shell.bash hook)"
 conda activate invoke
 mkdir -p /tmp/invoke/models
-if ! test -e /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/models
+if ! test -e ~/invokeai/models
 then
-  ln -s /tmp/invoke/models /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/
+  ln -s /tmp/invoke/models ~/invokeai/
 fi
-mkdir -p /tmp/huggingface/hub
-if ! test -e /home/studio-lab-user/.cache/huggingface/hub
-then
-  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/
-fi
-python --version
+#mkdir -p /tmp/huggingface/hub
+#if ! test -e ~/.cache/huggingface/hub
+#then
+#  ln -s /tmp/huggingface/hub ~/.cache/huggingface/
+#fi
 
-invokeai-web --root /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai &
+invokeai-web --root ~/invokeai &
 if [ $# -eq 0 ]
 then
   python start-ngrok.py  
