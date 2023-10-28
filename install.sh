@@ -3,17 +3,17 @@ conda create -y -n  invoke python=3.10
 eval "$(conda shell.bash hook)"
 conda activate invoke
 mkdir -p /tmp/invoke/models
-mkdir -p /tmp/huggingface/hub
-mkdir -p /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai
-mkdir -p /home/studio-lab-user/.cache/huggingface
-if ! test -e /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/models
+mkdir -p ~/invokeai
+if ! test -e ~/invokeai/models
 then
-  ln -s /tmp/invoke/models /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai/
+  ln -s /tmp/invoke/models ~/invokeai/
 fi
-if ! test -e /home/studio-lab-user/.cache/huggingface/hub
-then
-  ln -s /tmp/huggingface/hub /home/studio-lab-user/.cache/huggingface/hub
-fi
+#mkdir -p /tmp/huggingface/hub
+#mkdir -p ~/.cache/huggingface
+#if ! test -e ~/.cache/huggingface/hub
+#then
+#  ln -s /tmp/huggingface/hub ~/.cache/huggingface/hub
+#fi
 python --version
 pip install 'InvokeAI[xformers]' --use-pep517 --extra-index-url https://download.pytorch.org/whl/cu117
 python patch-16bit-model-download.py
