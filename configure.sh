@@ -28,3 +28,5 @@ invokeai-configure --root_dir ~/invokeai --yes  --default_only --skip-sd-weights
 
 # Model: T-Shirt Design Lora for SDXL - https://civitai.com/models/133031?modelVersionId=178022
 #invokeai-model-install --root_dir /home/studio-lab-user/sagemaker-studiolab-notebooks/invokeai --add "https://civitai.com/api/download/models/178022" 
+
+rm -rf ~/.cache/huggingface/hub/*
