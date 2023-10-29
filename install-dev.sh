@@ -17,7 +17,7 @@ fi
 #fi
 python --version
 cd ~
-git clone --depth 1 --branch v3.1.0 https://github.com/invoke-ai/InvokeAI
+git clone --depth 1 --branch v3.4.0rc1 https://github.com/invoke-ai/InvokeAI
 cd InvokeAI
 pip install -e .[xformers] --use-pep517 --extra-index-url https://download.pytorch.org/whl/cu118
 cd $dir
