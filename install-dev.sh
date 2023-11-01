@@ -9,12 +9,6 @@ if ! test -e ~/invokeai/models
 then
   ln -s /tmp/invoke/models ~/invokeai/
 fi
-#mkdir -p /tmp/huggingface/hub
-#mkdir -p ~/.cache/huggingface
-#if ! test -e ~/.cache/huggingface/hub
-#then
-#  ln -s /tmp/huggingface/hub ~/.cache/huggingface/hub
-#fi
 python --version
 cd ~
 git clone --depth 1 --branch v3.4.0rc1 https://github.com/invoke-ai/InvokeAI
