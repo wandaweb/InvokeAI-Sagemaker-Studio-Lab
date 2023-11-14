@@ -1,6 +1,10 @@
 import argparse
 import json
 from pyngrok import ngrok, conf
+import os
+import signal
+import sys
+import subprocess
 
 def get_saved_data():
     try:
@@ -13,6 +17,10 @@ def get_saved_data():
 def save_data(data):
     with open('data.json', 'w') as file:
         json.dump(data, file)
+        
+def signal_handler(sig, frame):
+    print('You pressed Ctrl+C!')
+    sys.exit(0)
 
 def main():
     parser = argparse.ArgumentParser(description='Console app with token and domain arguments')
@@ -63,7 +71,13 @@ def main():
       srv = ngrok.connect(9090 , pyngrok_config=conf.PyngrokConfig(auth_token=args.token),
                     bind_tls=True, domain=args.domain).public_url
       print(srv)
-      input('Press Enter to stop ngrok')
+    
+      signal.signal(signal.SIGINT, signal_handler)
+      print('Press Ctrl+C to exit')
+      cmd = 'invokeai-web --root ~/invokeai'
+      env = os.environ.copy()
+      subprocess.run(cmd, shell=True, env=env)
+      signal.pause()
     else:
       print('An ngrok token is required. You can get one on https://ngrok.com')
     
