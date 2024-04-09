@@ -70,11 +70,13 @@ def main():
       ngrok.kill()
       srv = ngrok.connect(9090 , pyngrok_config=conf.PyngrokConfig(auth_token=args.token),
                     bind_tls=True, domain=args.domain).public_url
-      print(srv)
+      print("🔗")
+      print("Your URL is: " + srv)
+      print("🔗")
     
       signal.signal(signal.SIGINT, signal_handler)
       print('Press Ctrl+C to exit')
-      cmd = 'invokeai-web --root ~/invokeai'
+      cmd = 'invokeai-web --root ~/invokeai --ignore_missing_core_models'
       env = os.environ.copy()
       subprocess.run(cmd, shell=True, env=env)
       signal.pause()
