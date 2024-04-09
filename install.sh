@@ -10,7 +10,7 @@ then
 fi
 
 python --version
-pip install 'InvokeAI[xformers]' --use-pep517 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install 'InvokeAI[xformers]==3.6.0' --use-pep517 --extra-index-url https://download.pytorch.org/whl/cu117
 python patch-16bit-model-download.py
 pip install pyngrok
 pip install opencv-python-headless
