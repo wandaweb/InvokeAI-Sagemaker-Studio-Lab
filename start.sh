@@ -9,8 +9,8 @@ fi
 
 if [ $# -eq 0 ]
 then
-  python start-ngrok.py  
+  python start-with-tunnel.py  
 elif [ $1 = "reset" ]
 then
-  python start-ngrok.py --reset 
+  python start-with-tunnel.py --reset 
 fi
